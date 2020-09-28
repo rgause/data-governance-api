@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity DBSource.
+    -->
+    <changeSet id="20200928162231-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="family_id"
+                                 baseTableName="db_source"
+                                 constraintName="fk_db_source_family_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="db_family"/>
+
+        <addForeignKeyConstraint baseColumnNames="dbsource_id"
+                                 baseTableName="db_source_concern"
+                                 constraintName="fk_db_source_concern_db_source_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="db_source"/>
+
+        <addForeignKeyConstraint baseColumnNames="concern_id"
+                                 baseTableName="db_source_concern"
+                                 constraintName="fk_db_source_concern_concern_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="concern"/>
+        
+    </changeSet>
+</databaseChangeLog>

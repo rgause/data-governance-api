@@ -1,0 +1,48 @@
+{
+  "name": "DBColumn",
+  "fields": [
+    {
+      "fieldName": "columnName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "unique"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "dBTable",
+      "otherEntityRelationshipName": "dBColumn",
+      "relationshipName": "table",
+      "otherEntityField": "tableName"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "concern",
+      "otherEntityRelationshipName": "column",
+      "relationshipName": "concern",
+      "otherEntityField": "concernDescription",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "persona",
+      "otherEntityRelationshipName": "column",
+      "relationshipName": "persona",
+      "otherEntityField": "personaName",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200928162531",
+  "entityTableName": "db_column",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

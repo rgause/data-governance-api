@@ -1,0 +1,37 @@
+{
+  "name": "Persona",
+  "fields": [
+    {
+      "fieldName": "personaName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "unique"
+      ]
+    },
+    {
+      "fieldName": "securityGroupName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dBColumn",
+      "otherEntityRelationshipName": "persona",
+      "relationshipName": "column",
+      "otherEntityField": "columnName",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200928162031",
+  "entityTableName": "persona",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
