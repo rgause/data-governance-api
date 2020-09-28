@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="dBTable">
+            <h2><span>DB Table</span> {{ dBTable.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Table Name</span></dt>
+                <dd>
+                    <span>{{ dBTable.tableName }}</span>
+                </dd>
+                <dt><span>Database</span></dt>
+                <dd>
+                    <div *ngIf="dBTable.database">
+                        <a [routerLink]="['/db-database', dBTable.database?.id, 'view']">{{ dBTable.database?.databaseName }}</a>
+                    </div>
+                </dd>
+                <dt><span>Concern</span></dt>
+                <dd>
+                    <span *ngFor="let concern of dBTable.concerns; let last = last">
+                        <a [routerLink]="['/concern', concern?.id, 'view']">{{ concern.concernDescription }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/db-table', dBTable.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

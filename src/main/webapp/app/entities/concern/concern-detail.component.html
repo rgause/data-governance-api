@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="concern">
+            <h2><span>Concern</span> {{ concern.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Concern Description</span></dt>
+                <dd>
+                    <span>{{ concern.concernDescription }}</span>
+                </dd>
+                <dt><span>Concern Type</span></dt>
+                <dd>
+                    <div *ngIf="concern.concernType">
+                        <a [routerLink]="['/concern-type', concern.concernType?.id, 'view']">{{ concern.concernType?.concernTypeName }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/concern', concern.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

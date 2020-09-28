@@ -47,6 +47,24 @@ public class CacheConfiguration {
             createCache(cm, com.mycompany.myapp.domain.User.class.getName());
             createCache(cm, com.mycompany.myapp.domain.Authority.class.getName());
             createCache(cm, com.mycompany.myapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mycompany.myapp.domain.Persona.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Persona.class.getName() + ".columns");
+            createCache(cm, com.mycompany.myapp.domain.DBFamily.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DBSource.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DBSource.class.getName() + ".concerns");
+            createCache(cm, com.mycompany.myapp.domain.DBDatabase.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DBDatabase.class.getName() + ".concerns");
+            createCache(cm, com.mycompany.myapp.domain.DBTable.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DBTable.class.getName() + ".concerns");
+            createCache(cm, com.mycompany.myapp.domain.DBColumn.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.DBColumn.class.getName() + ".concerns");
+            createCache(cm, com.mycompany.myapp.domain.DBColumn.class.getName() + ".personas");
+            createCache(cm, com.mycompany.myapp.domain.ConcernType.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Concern.class.getName());
+            createCache(cm, com.mycompany.myapp.domain.Concern.class.getName() + ".columns");
+            createCache(cm, com.mycompany.myapp.domain.Concern.class.getName() + ".tables");
+            createCache(cm, com.mycompany.myapp.domain.Concern.class.getName() + ".databases");
+            createCache(cm, com.mycompany.myapp.domain.Concern.class.getName() + ".sources");
             // jhipster-needle-ehcache-add-entry
         };
     }

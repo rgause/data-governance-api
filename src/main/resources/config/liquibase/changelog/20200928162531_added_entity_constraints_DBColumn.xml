@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity DBColumn.
+    -->
+    <changeSet id="20200928162531-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="table_id"
+                                 baseTableName="db_column"
+                                 constraintName="fk_db_column_table_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="db_table"/>
+
+        <addForeignKeyConstraint baseColumnNames="dbcolumn_id"
+                                 baseTableName="db_column_concern"
+                                 constraintName="fk_db_column_concern_db_column_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="db_column"/>
+
+        <addForeignKeyConstraint baseColumnNames="concern_id"
+                                 baseTableName="db_column_concern"
+                                 constraintName="fk_db_column_concern_concern_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="concern"/>
+        
+    </changeSet>
+</databaseChangeLog>

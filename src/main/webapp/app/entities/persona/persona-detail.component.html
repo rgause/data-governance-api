@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="persona">
+            <h2><span>Persona</span> {{ persona.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Persona Name</span></dt>
+                <dd>
+                    <span>{{ persona.personaName }}</span>
+                </dd>
+                <dt><span>Security Group Name</span></dt>
+                <dd>
+                    <span>{{ persona.securityGroupName }}</span>
+                </dd>
+                <dt><span>Column</span></dt>
+                <dd>
+                    <span *ngFor="let column of persona.columns; let last = last">
+                        <a [routerLink]="['/db-column', column?.id, 'view']">{{ column.columnName }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/persona', persona.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

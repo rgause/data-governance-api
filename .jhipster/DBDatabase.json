@@ -1,0 +1,40 @@
+{
+  "name": "DBDatabase",
+  "fields": [
+    {
+      "fieldName": "databaseName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "unique"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "dBSource",
+      "otherEntityRelationshipName": "dBDatabase",
+      "relationshipName": "source",
+      "otherEntityField": "sourceName"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "concern",
+      "otherEntityRelationshipName": "database",
+      "relationshipName": "concern",
+      "otherEntityField": "concernDescription",
+      "ownerSide": true
+    }
+  ],
+  "changelogDate": "20200928162331",
+  "entityTableName": "db_database",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

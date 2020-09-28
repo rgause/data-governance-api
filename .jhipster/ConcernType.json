@@ -1,0 +1,24 @@
+{
+  "name": "ConcernType",
+  "fields": [
+    {
+      "fieldName": "concernTypeName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "unique"
+      ]
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200928162631",
+  "entityTableName": "concern_type",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

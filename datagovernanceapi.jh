@@ -1,0 +1,53 @@
+entity Persona {
+	personaName String unique,
+    securityGroupName String
+}
+
+entity DBFamily {
+	name String unique
+}
+entity DBSource {
+	sourceName String unique
+}
+
+entity DBDatabase {
+	databaseName String unique
+}
+
+
+entity DBTable {
+	tableName String unique
+}
+
+
+entity DBColumn {
+	columnName String unique
+}
+
+entity ConcernType {
+	concernTypeName String unique
+}
+
+entity Concern {
+	concernDescription String unique
+}
+
+relationship ManyToOne {
+	DBColumn{table (tableName)} to DBTable,
+	DBTable{database (databaseName)} to DBDatabase,
+    DBDatabase{source (sourceName)} to DBSource,
+    DBSource{family (name)} to DBFamily,
+    Concern{concernType (concernTypeName)} to ConcernType
+}
+
+relationship ManyToMany {
+	Persona{column (columnName)} to DBColumn{persona (personaName)},
+	DBColumn{concern (concernDescription)} to Concern{column (columnName)},
+	DBTable{concern (concernDescription)} to Concern{table (tableName)},
+	DBDatabase{concern (concernDescription)} to Concern{database (databaseName)},
+	DBSource{concern (concernDescription)} to Concern{source (sourceName)}
+}
+
+paginate all with pagination
+
+service all with serviceImpl

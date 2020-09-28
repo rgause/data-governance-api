@@ -1,0 +1,64 @@
+{
+  "name": "Concern",
+  "fields": [
+    {
+      "fieldName": "concernDescription",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "unique"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "concernType",
+      "otherEntityRelationshipName": "concern",
+      "relationshipName": "concernType",
+      "otherEntityField": "concernTypeName"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dBColumn",
+      "otherEntityRelationshipName": "concern",
+      "relationshipName": "column",
+      "otherEntityField": "columnName",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dBTable",
+      "otherEntityRelationshipName": "concern",
+      "relationshipName": "table",
+      "otherEntityField": "tableName",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dBDatabase",
+      "otherEntityRelationshipName": "concern",
+      "relationshipName": "database",
+      "otherEntityField": "databaseName",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "dBSource",
+      "otherEntityRelationshipName": "concern",
+      "relationshipName": "source",
+      "otherEntityField": "sourceName",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20200928162731",
+  "entityTableName": "concern",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

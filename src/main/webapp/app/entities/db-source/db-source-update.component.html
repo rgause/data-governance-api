@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-db-source-heading">Create or edit a DB Source</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sourceName">Source Name</label>
+                    <input type="text" class="form-control" name="sourceName" id="field_sourceName"
+                           formControlName="sourceName"/>
+                    <div *ngIf="editForm.get('sourceName')!.invalid && (editForm.get('sourceName')!.dirty || editForm.get('sourceName')!.touched)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_family">Family</label>
+                    <select class="form-control" id="field_family" name="family" formControlName="family">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="dBFamilyOption.id === editForm.get('family')!.value?.id ? editForm.get('family')!.value : dBFamilyOption" *ngFor="let dBFamilyOption of dbfamilies; trackBy: trackById">{{ dBFamilyOption.name }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="field_concerns">Concern</label>
+                    <select class="form-control" id="field_concerns" multiple name="concerns" formControlName="concerns">
+                        <option [ngValue]="getSelected(editForm.get('concerns')!.value, concernOption)" *ngFor="let concernOption of concerns; trackBy: trackById">{{ concernOption.concernDescription }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
