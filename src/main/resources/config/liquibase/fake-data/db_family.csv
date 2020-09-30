@@ -1,11 +1,10 @@
 id;name
-1;scalable
-2;Wisconsin Accountability Licensed Frozen Bacon
-3;Car Tunnel synergies
-4;real-time
-5;magnetic transition Silver
-6;panel Computers
-7;Savings Account Buckinghamshire
-8;Small Tunnel Handmade
-9;Wooden programming
-10;Configuration Intelligent
+1;Oracle
+2;Microsoft SQL Server
+3;Sybase SQL Server
+4;MySQL
+5;MariaDB
+6;PostgreSQL
+7;H2
+8;DB2
+10;Informix
